@@ -1,13 +1,23 @@
 import json
 import http.client
+import csv
 
-#PARAMS
-synAccName = # To be filled out
-synAccPw = # To be filled out
-synIpAddr = # To be filled out
+#Setup the Parameter of Premiumize and your NAS
+params = open('params.csv', "r")
+for line in params:
+	line = line.split(',')
+	if line[0] == 'synAccName':
+		synAccName = line[1].rstrip()
+	elif line[0] == 'synAccPw':
+		synAccPw = line[1].rstrip()
+	elif line[0] == 'synIpAddr':
+		synIpAddr = line[1].rstrip()
+	elif line[0] == 'premAccID':
+		premAccID = line[1].rstrip()
+	elif line[0] == 'premAccPw':
+		premAccPw = line[1].rstrip()
 
-premAccID = # To be filled out
-premAccPw = # To be filled out
+deletions = True
 
 
 #Connection Handling
